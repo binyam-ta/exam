@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-// import { createUser } from '@/lib/db.ts';
+import { createUser } from '@/lib/db';
 
 const registerSchema = z.object({
   email: z.string().email(),
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ user, paymentUrl: paymentResult.checkout_url }, { status: 201 });
 }
-function createUser(arg0: { email: string; password: string; firstName: string; lastName: string; }) {
-  throw new Error('Function not implemented.');
-}
+// function createUser(arg0: { email: string; password: string; firstName: string; lastName: string; }) {
+//   throw new Error('Function not implemented.');
+// }
 
