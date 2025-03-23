@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FaGoogle, FaFacebook, FaApple, FaCheck } from 'react-icons/fa';
+import { FaGoogle, FaFacebook, FaApple, FaCheck, FaSpinner } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { PaymentForm } from '@/components/payment/payment-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -223,7 +223,7 @@ const RegisterForm = () => {
                       : 'border-gray-300 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-700'}
                     ${plan.recommended ? 'relative' : ''}
                   `}
-                  onClick={() => setSelectedPlan(plan.id)}
+                  onClick={() => setSelectedPlan(plan.id as 'basic' | 'premium')}
                 >
                   {plan.recommended && (
                     <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
